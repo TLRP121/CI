@@ -1,0 +1,25 @@
+PRACT 3(A): 
+ 
+STEP 1: R1 
+en
+conf t
+line vty 0 4
+password vtypa55
+login
+
+access-list 100 permit tcp 172.22.34.64 0.0.0.31 host 172.22.34.62 eq ftp 
+access-list 100 permit icmp 172.22.34.64 0.0.0.31 host 172.22.34.62  
+interface gigabitEthernet 0/0  
+ip access-group 100 in 
+exit 
+
+ip access-list extended HTTP_ONLY 
+permit tcp 172.22.34.96 0.0.0.15 host 172.22.34.62 eq www 
+permit icmp 172.22.34.96 0.0.0.15 host 172.22.34.62  
+end 
+
+interface gigabitEthernet 0/1 
+ip access-group HTTP_ONLY in 
+
+STEP 3:  PC A :GO TO THE PC AND WRITE ftp 172.22.34.62  
+PC B : GO TO WEB BROWER WRITE 172.22.34.62
