@@ -25,3 +25,9 @@ ntp authenticate
 ntp trusted-key 1 
 ntp authentication-key 1 md5 NTPpa55 
 service timestamps log datetime msec
+
+check in server 2 if SYSLOG is on
+paste in config of all router
+logging host 192.168.1.6 
+to check log- in all router
+show logging
