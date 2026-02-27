@@ -17,6 +17,7 @@ STEP 3: PING
 router ospf1  
 network IP area 0  
 then ping the PC  
+
 STEP 4: THIS COMMAD GOES IN ALL THE 3 ROUTER(R)  
 license boot module c1900 technology-package securityk9  
 
@@ -51,7 +52,13 @@ crypto map VPN-MAP 10 ipsec-isakmp
 description VPN connection to R1  
 set peer 10.1.1.2  
 set transform-set VPN-SET  
+
+
 match address 110  
 exit  
 interface s0/1/1  
 crypto map VPN-MAP
+
+
+to verify type in R1# and R3#
+show crypto ipsec sa
